@@ -55,7 +55,12 @@ kramdown:
 # duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
 # UYAN setttings
-uy_user_id: 2105313
+# uy_user_id: 2105313
+
+# changyan settings
+changyan_app_id: cystl32KH
+changyan_conf: prod_c1be456f632bd05b51c4f1f39a042827
+
 
 # Analytics settings
 # Baidu Analytics
