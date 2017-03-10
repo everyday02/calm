@@ -12,11 +12,11 @@ baseurl: "/calm"         # for example, '/blog' if your blog hosted on 'host/blo
 
 # SNS settings
 RSS: false
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
+#weibo_username:     huxpro
+#zhihu_username:     huxpro
+#github_username:    huxpro
 #twitter_username:  huxpro
-facebook_username:  huxpro
+#facebook_username:  huxpro
 
 
 
@@ -50,12 +50,12 @@ kramdown:
 #disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-duoshuo_username: huxblog
+# duoshuo_username: huxblog
 # Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+# duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
-
-
+# UYAN setttings
+uy_user_id: 2105313
 
 # Analytics settings
 # Baidu Analytics

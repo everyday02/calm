@@ -66,7 +66,7 @@ layout: default
                     style="text-align: right"
                     data-thread-key="{{page.id}}" data-title="{{page.title}}"
                     data-images="{{ site.url }}{{site.baseurl}}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}"
-                    data-content="{{ content | strip_html | truncate:80 }} | Hux Blog，@Hux黄玄 的个人博客"
+                    data-content="{{ content | strip_html | truncate:80 }} | Calm Blog，@Calm 何航 的个人博客"
                     data-url="{{site.url}}{{site.baseurl}}{{page.url}}">
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
@@ -80,7 +80,7 @@ layout: default
                     </div>
                 <hr>
                 </div>
-                <!-- 多少 Share end-->
+                <!-- 多说 Share end-->
                 {% endif %}
 
 
@@ -201,6 +201,14 @@ layout: default
 </script>
 <!-- 多说公共JS代码 end -->
 {% endif %}
+
+
+<!-- 友言公共JS代码 start -->
+{% if site.uy_user_id %}
+  <div id="uyan_frame"></div>
+  <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid={{uy_user_id}}"></script>
+{% endif %}
+<!-- 友言公共JS代码 end -->
 
 
 {% if site.disqus_username %}

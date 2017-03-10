@@ -90,8 +90,8 @@ layout: default
                     {% endif %}
                 </ul>
 
-
                 {% if site.duoshuo_username %}
+
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
@@ -101,7 +101,30 @@ layout: default
                     </div>
                 </div>
                 <!-- 多说评论框 end -->
+
                 {% endif %}
+
+                <!-- 友言公共JS代码 start -->
+                {% if site.uy_user_id %}
+                  <div id="uyan_frame" user_id="{{uy_user_id}}" style="margin-top: 50px;min-height: 540px;"></div>
+                  <div id='uyan_container'>
+                  </div>
+                  <script type="text/javascript">
+                      // dynamic User by Hux
+                      var _user_id = '{{site.uy_user_id}}';
+
+                      (function() {
+                          var ds = document.createElement('script');
+                          var container = document.getElementById('uyan_container');
+                          ds.type = 'text/javascript';ds.async = true;
+                          ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//v2.uyan.cc/code/uyan.js?uid='+ _user_id;
+                          ds.charset = 'UTF-8';
+                          container.appendChild(ds);
+                      })();
+                  </script>
+                {% endif %}
+                <!-- 友言公共JS代码 end -->
+
 
                 {% if site.disqus_username %}
                 <!-- disqus 评论框 start -->
