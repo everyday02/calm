@@ -248,24 +248,21 @@
 
                 
 
-                <!-- 友言公共JS代码 start -->
+                <!-- 畅言公共JS代码 start-->
                 
-                  <div id="uyan_frame" user_id="" style="margin-top: 50px;min-height: 540px;"></div>
-                  <div id='uyan_container'>
-                  </div>
+                  <div id="SOHUCS" ></div>
+                  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
                   <script type="text/javascript">
-                      // dynamic User by Hux
-                      var _user_id = '2105313';
-
-                      (function() {
-                          var ds = document.createElement('script');
-                          var container = document.getElementById('uyan_container');
-                          ds.type = 'text/javascript';ds.async = true;
-                          ds.src = 'http://v2.uyan.cc/code/uyan.js?uid='+ _user_id;
-                          ds.charset = 'UTF-8';
-                          container.appendChild(ds);
-                      })();
+                    window.changyan.api.config({
+                    appid: 'cystl32KH',
+                    conf: 'prod_c1be456f632bd05b51c4f1f39a042827'
+                    });
                   </script>
+                
+                <!-- 畅言公共JS代码 end -->
+
+
+                <!-- 友言公共JS代码 start -->
                 
                 <!-- 友言公共JS代码 end -->
 
@@ -286,14 +283,6 @@
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-        				
-                            
-        				
-                            
-        				
-                            
-        				
-                            
         				
                             
                 				<a href="/calm/tags/#前端开发" title="前端开发" rel="3">
