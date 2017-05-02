@@ -1,9 +1,5 @@
-# HuxBlog Boilerplate
+# 个人博客 | (基于[Hux Blog](https://github.com/Huxpro/huxpro.github.io)搭建，非常感谢！Blog is very fashion。)
 
-##### This is the boilerplate of [Hux Blog](https://github.com/Huxpro/huxpro.github.io), all documents is over there!
+##### [搭建教程参考](https://github.com/Huxpro/huxpro.github.io/blob/master/README.zh.md)
 
-#### [View Boilerplate &rarr;](http://huangxuan.me/huxblog-boilerplate/)
-
-#### [View Live Hux Blog &rarr;](http://huangxuan.me)
-
-## If you like Hux Blog, Please star [huxpro.github.io repo](https://github.com/Huxpro/huxpro.github.io) instead of this! Thank you!
+启动命令：`jekyll server`
