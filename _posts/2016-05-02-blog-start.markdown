@@ -2,8 +2,8 @@
 layout:     keynote
 title:      "新的篇章 | Blog"
 subtitle:   "Keynote: Blog Start"
-iframe:     "http://huangxuan.me/js-module-7day/"
-date:       2015-07-09
+iframe:     "https://hehangfighting.github.io/calm/blog-start/"
+date:       2016-05-02
 author:     "hehang"
 header-img: "img/post-bg-js-version.jpg"
 tags:

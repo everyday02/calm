@@ -5,3 +5,4 @@
 
 
 启动命令：`jekyll server`
+构建静态文件： `jekyll build --destination docs`
