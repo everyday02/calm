@@ -1,14 +1,12 @@
 ---
-layout:     keynote
+layout:     post
 title:      "新的篇章 | Blog"
-subtitle:   "Keynote: Blog Start"
-iframe:     "https://hehangfighting.github.io/calm/blog-start/"
+subtitle:   "New start"
 date:       2016-05-02
-author:     "hehang"
-header-img: "http://blog-image.bj.bcebos.com/common/blog-start.jpg"
+author:     "HeHang"
+header-img: "img/home-bg.jpg"
 tags:
-    - 前端开发
-    - JavaScript
+    - 闲谈
 ---
 
 

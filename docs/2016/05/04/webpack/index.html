@@ -12,9 +12,9 @@
     <meta name="keyword"  content="何航, 博客, Web, 前端, 全栈, JavaScript | 个人网站, 互联网, 前端, 设计, 产品">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>何航的博客 | hehangblog</title>
+    <title>Webpack2 学习指南 - 何航的博客 | hehangblog</title>
 
-    <link rel="canonical" href="http://hehangblog.com/404.html">
+    <link rel="canonical" href="http://hehangblog.com/2016/05/04/webpack/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -125,23 +125,230 @@
 </script>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/404-bg.jpg')">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				<div class="site-heading" id="tag-heading">
-					<h1>404</h1>
-					<span class="subheading">你来到了没有知识的荒原 :(</span>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/webpack/webpack.png" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/webpack/webpack.png')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#WebPack" title="WebPack">WebPack</a>
+                        
+                    </div>
+                    <h1>Webpack2 学习指南</h1>
+                    
+                    
+                    <h2 class="subheading">webpack2 guide</h2>
+                    
+                    <span class="meta">Posted by HeHang on May 4, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<blockquote>
+  <p>下滑这里查看更多内容</p>
+</blockquote>
+
+<p>记录了个人在学习webpack2中写的一些demos和过程遇到的坑点。</p>
+
+<h3 id="section">如何开始</h3>
+
+<ol>
+  <li>安装必须的2个包,webpack 和 webpack-dev-server到全局环境。
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> npm i -g webpack webpack-dev-server
+</code></pre>
+    </div>
+  </li>
+  <li>接着，进入demo01, 阅读<code>README.md</code>开始学习。</li>
+</ol>
+
+<h3 id="webpack2---">webpack2 - 基础教程</h3>
+
+<p>基础教程中，并未使用到React/Angualr/vue，减低学习成本，仅仅是最基础的javaScript代码。</p>
+
+<p>主要针对已有一定前端基础的同学，看不懂的请先打好前端基础。</p>
+
+<p>(内容会持续更新…)</p>
+
+<ul>
+  <li>
+    <p><a href="/demo01">demo01 Entry:入口文件</a>.</p>
+  </li>
+  <li>
+    <p><a href="/demo02">demo02 Babel:支持es6语法</a>.</p>
+  </li>
+  <li>
+    <p><a href="/demo03">demo03 HMR:模块热更新（替换)</a>.</p>
+  </li>
+  <li>
+    <p><a href="/demo04">demo04 Caching:缓存</a>.</p>
+  </li>
+  <li>
+    <p><a href="/demo05">demo05 Externals:外部扩展</a></p>
+  </li>
+  <li>
+    <p><a href="/demo06">demo06 Always:常用Loaders</a></p>
+  </li>
+  <li>
+    <p><a href="/demo07">demo07 Loader:常用Plugins</a></p>
+    <h3 id="webpack2----1">webpack2 - 高级教程</h3>
+  </li>
+</ul>
+
+<p>高级教程:为了减低demo之间的耦合，<code>package.json</code>文件分别放置在每个demo文件夹下，保证独立性。</p>
+
+<p>结合大量生态插件，代码调优等，进行前端项目环境搭建。</p>
+
+
+                <hr>
+
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/05/02/dockerfile-rules/" data-toggle="tooltip" data-placement="top" title="Dockerfile的书写规范">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+
+                <!-- 畅言公共JS代码 start-->
+                
+                  <div id="SOHUCS" ></div>
+                  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+                  <script type="text/javascript">
+                    window.changyan.api.config({
+                    appid: 'cystl32KH',
+                    conf: 'prod_c1be456f632bd05b51c4f1f39a042827'
+                    });
+                  </script>
+                
+                <!-- 畅言公共JS代码 end -->
+
+
+                <!-- 友言公共JS代码 start -->
+                
+                <!-- 友言公共JS代码 end -->
+
+
+                
+
+            </div>
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a href="http://huangxuan.me">Hux Blog</a></li>
+                    
+                        <li><a href="#">Foo</a></li>
+                    
+                        <li><a href="#">Bar</a></li>
+                    
+                        <li><a href="#">Example Friends</a></li>
+                    
+                        <li><a href="#">It helps SEO</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
 <script>
-	document.body.classList.add('page-fullscreen');
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
 </script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
