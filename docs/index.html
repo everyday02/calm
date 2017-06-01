@@ -10,20 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="何航 | 博客 | Web | 前端 | 全栈 | JavaScript">
     <meta name="keyword"  content="何航, 博客, Web, 前端, 全栈, JavaScript | 个人网站, 互联网, 前端, 设计, 产品">
-    <link rel="shortcut icon" href="/calm/img/favicon.ico">
+    <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>何航的博客 | hehangblog</title>
+    <title>何航的博客 | HeHang</title>
 
-    <link rel="canonical" href="http://hehangblog.com/calm/">
+    <link rel="canonical" href="http://hehangblog.com/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/calm/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/calm/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/calm/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -64,7 +64,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/calm/">Follow your heart</a>
+            <a class="navbar-brand" href="/">Follow your heart</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -77,15 +77,15 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/calm/">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     
                     <li>
-                        <a href="/calm/about/">About</a>
+                        <a href="/about/">About</a>
                     </li>
                     
                     <li>
-                        <a href="/calm/tags/">Tags</a>
+                        <a href="/tags/">Tags</a>
                     </li>
                     
                 </ul>
@@ -126,7 +126,7 @@
 
 
     <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/calm/img/home-bg.jpg')">
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
@@ -156,7 +156,43 @@
             ">
     			
 <div class="post-preview">
-    <a href="/calm/2016/05/04/webpack/">
+    <a href="/2016/05/28/tm-docker-build/">
+        <h2 class="post-title">
+            构建简单的java项目运行环境
+        </h2>
+        
+        <h3 class="post-subtitle">
+            Java Docker Build
+        </h3>
+        
+        <div class="post-content-preview">
+            
+  下滑这里查看更多内容
+
+
+一个小练习项目，记录一下。
+
+基础镜像
+
+从网易蜂巢拉取基础环境镜像
+
+  Tomcat 服务容器： library / tomcat
+  Mysql 数据库容器：library / mysql
+
+
+docker pull hub.c.163.com/library/tomcat:latest
+
+docker pull hub.c.163.com/librar...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by HeHang on May 28, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2016/05/04/webpack/">
         <h2 class="post-title">
             Webpack2 学习指南
         </h2>
@@ -193,7 +229,7 @@ webpack...
 <hr>
 
 <div class="post-preview">
-    <a href="/calm/2016/05/02/dockerfile-rules/">
+    <a href="/2016/05/02/dockerfile-rules/">
         <h2 class="post-title">
             Dockerfile的书写规范
         </h2>
@@ -224,7 +260,7 @@ Dockerfile的指令根据作用可以分为两种，构建指令和设置指令�
 <hr>
 
 <div class="post-preview">
-    <a href="/calm/2016/05/02/blog-start/">
+    <a href="/2016/05/02/blog-start/">
         <h2 class="post-title">
             新的篇章 | Blog
         </h2>
@@ -272,11 +308,15 @@ Thanks
                 
                 <section>
                     <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/calm/tags/">FEATURED TAGS</a></h5>
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                         
                             
                         
+                            
+                                <a href="/tags/#Docker" title="Docker" rel="2">
+                                    Docker
+                                </a>
                             
                         
                             
@@ -287,7 +327,7 @@ Thanks
 
                 <!-- Short About -->
                 <section class="visible-md visible-lg">
-                    <hr><h5><a href="/calm/about/">ABOUT ME</a></h5>
+                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
                     <div class="short-about">
                         
                             <img src="/img/my-head.jpg" />
@@ -351,11 +391,13 @@ Thanks
                     Copyright &copy; Follow your heart 2017
                     <br>
                     Calm by <a href="https://github.com/hehangfighting/calm">hehang</a> |
+                    <!--
                     <iframe
                         style="margin-left: 2px; margin-bottom:-5px;"
                         frameborder="0" scrolling="0" width="91px" height="20px"
                         src="https://ghbtns.com/github-btn.html?user=hehangfighting&repo=https://hehangfighting.github.io/calm/&type=star&count=true" >
                     </iframe>
+                    -->
                 </p>
             </div>
         </div>
@@ -363,13 +405,13 @@ Thanks
 </footer>
 
 <!-- jQuery -->
-<script src="/calm/js/jquery.min.js "></script>
+<script src="/js/jquery.min.js "></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/calm/js/bootstrap.min.js "></script>
+<script src="/js/bootstrap.min.js "></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/calm/js/hux-blog.min.js "></script>
+<script src="/js/hux-blog.min.js "></script>
 
 
 <!-- async load function -->
@@ -427,21 +469,6 @@ Thanks
 
 
 <!-- Google Analytics -->
-
-<script>
-    // dynamic User by Hux
-    var _gaId = 'UA-49627206-1';
-    var _gaDomain = 'hehangfighting.github.io';
-
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
 
 
 

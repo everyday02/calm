@@ -12,9 +12,9 @@
     <meta name="keyword"  content="何航, 博客, Web, 前端, 全栈, JavaScript | 个人网站, 互联网, 前端, 设计, 产品">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>何航的博客 | HeHang</title>
+    <title>构建简单的java项目运行环境 - 何航的博客 | HeHang</title>
 
-    <link rel="canonical" href="http://hehangblog.com/404.html">
+    <link rel="canonical" href="http://hehangblog.com/2016/05/28/tm-docker-build/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -125,23 +125,225 @@
 </script>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/404-bg.jpg')">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				<div class="site-heading" id="tag-heading">
-					<h1>404</h1>
-					<span class="subheading">你来到了没有知识的荒原 :(</span>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/docker/java-docker-build.png" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/docker/java-docker-build.png')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Docker" title="Docker">Docker</a>
+                        
+                    </div>
+                    <h1>构建简单的java项目运行环境</h1>
+                    
+                    
+                    <h2 class="subheading">Java Docker Build</h2>
+                    
+                    <span class="meta">Posted by HeHang on May 28, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<blockquote>
+  <p>下滑这里查看更多内容</p>
+</blockquote>
+
+<p>一个小练习项目，记录一下。</p>
+
+<h4 id="section">基础镜像</h4>
+
+<p>从网易蜂巢拉取基础环境镜像</p>
+<ul>
+  <li>Tomcat 服务容器： <a href="https://c.163.com/hub#/m/repository/?repoId=3105">library / tomcat</a></li>
+  <li>Mysql 数据库容器：<a href="https://c.163.com/hub#/m/repository/?repoId=2955">library / mysql</a></li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>docker pull hub.c.163.com/library/tomcat:latest
+
+docker pull hub.c.163.com/library/mysql:latest
+</code></pre>
+</div>
+
+<h4 id="section-1">基于基础镜像构建容器</h4>
+
+<p>构建<code>tm-mysql</code>数据库容器</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  <span class="c"># mysql:username   root</span>
+  <span class="c"># mysql:password   hehang</span>
+  <span class="c"># -p 3307:3306 映射3306端口至本地3307</span>
+  docker run -ti -p 3307:3306  --name tm-mysql -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>hehang -d 9e64176cd8a2
+</code></pre>
+</div>
+
+<p>构建<code>tm-web</code>服务器容器</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># -p 8080:8080 映射8080端口至本地8080</span>
+<span class="c"># -v /local/TM/WebRoot/:/usr/local/tomcat/webapps/TM/ 目录映射</span>
+<span class="c"># --link tm-mysql:tm-mysql   用来将两个容器进行关联,使tm-web可以通过tm-db别名去访问tm-mysql容器</span>
+
+docker run -it -d -p 8080:8080 --name tm-web --link tm-mysql:tm-db -v /Users/hehang/GitHub/TM/WebRoot/:/usr/local/tomcat/webapps/TM/ 3695a0fe8320
+</code></pre>
+</div>
+
+<p>最后在本地通过<code>3307</code>端口链接至mysql容器，初始化tm库表数据。</p>
+
+<p>运行完美。</p>
+
+
+                <hr>
+
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/05/04/webpack/" data-toggle="tooltip" data-placement="top" title="Webpack2 学习指南">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+
+                <!-- 畅言公共JS代码 start-->
+                
+                  <div id="SOHUCS" ></div>
+                  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+                  <script type="text/javascript">
+                    window.changyan.api.config({
+                    appid: 'cystl32KH',
+                    conf: 'prod_c1be456f632bd05b51c4f1f39a042827'
+                    });
+                  </script>
+                
+                <!-- 畅言公共JS代码 end -->
+
+
+                <!-- 友言公共JS代码 start -->
+                
+                <!-- 友言公共JS代码 end -->
+
+
+                
+
+            </div>
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+        				
+                            
+                				<a href="/tags/#Docker" title="Docker" rel="2">
+                                    Docker
+                                </a>
+                            
+        				
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a href="http://huangxuan.me">Hux Blog</a></li>
+                    
+                        <li><a href="#">Foo</a></li>
+                    
+                        <li><a href="#">Bar</a></li>
+                    
+                        <li><a href="#">Example Friends</a></li>
+                    
+                        <li><a href="#">It helps SEO</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
 <script>
-	document.body.classList.add('page-fullscreen');
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
 </script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->

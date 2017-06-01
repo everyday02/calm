@@ -1,12 +1,12 @@
 # Site settings
 title: Follow your heart
-SEOTitle: 何航的博客 | hehangblog
+SEOTitle: 何航的博客 | HeHang
 header-img: img/home-bg.jpg
 email: hehangfighting@outlook.com
 description: "何航 | 博客 | Web | 前端 | 全栈 | JavaScript"
 keyword: "何航, 博客, Web, 前端, 全栈, JavaScript | 个人网站, 互联网, 前端, 设计, 产品"
 url: "http://hehangblog.com"              # your host, for absolute URL
-baseurl: "/calm"         # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
@@ -66,8 +66,8 @@ changyan_conf: prod_c1be456f632bd05b51c4f1f39a042827
 # Baidu Analytics
 ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
 # Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: hehangfighting.github.io
+# ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+# ga_domain: hehangfighting.github.io
 
 
 

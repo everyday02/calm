@@ -3,11 +3,67 @@
   <channel>
     <title>Follow your heart</title>
     <description>何航 | 博客 | Web | 前端 | 全栈 | JavaScript</description>
-    <link>http://hehangblog.com/calm/</link>
-    <atom:link href="http://hehangblog.com/calm/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 31 May 2017 18:27:10 +0800</pubDate>
-    <lastBuildDate>Wed, 31 May 2017 18:27:10 +0800</lastBuildDate>
+    <link>http://hehangblog.com/</link>
+    <atom:link href="http://hehangblog.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Thu, 01 Jun 2017 15:13:40 +0800</pubDate>
+    <lastBuildDate>Thu, 01 Jun 2017 15:13:40 +0800</lastBuildDate>
     <generator>Jekyll v3.4.1</generator>
+    
+      <item>
+        <title>构建简单的java项目运行环境</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;下滑这里查看更多内容&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;一个小练习项目，记录一下。&lt;/p&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;基础镜像&lt;/h4&gt;
+
+&lt;p&gt;从网易蜂巢拉取基础环境镜像&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tomcat 服务容器： &lt;a href=&quot;https://c.163.com/hub#/m/repository/?repoId=3105&quot;&gt;library / tomcat&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Mysql 数据库容器：&lt;a href=&quot;https://c.163.com/hub#/m/repository/?repoId=2955&quot;&gt;library / mysql&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker pull hub.c.163.com/library/tomcat:latest
+
+docker pull hub.c.163.com/library/mysql:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;基于基础镜像构建容器&lt;/h4&gt;
+
+&lt;p&gt;构建&lt;code&gt;tm-mysql&lt;/code&gt;数据库容器&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;c&quot;&gt;# mysql:username   root&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# mysql:password   hehang&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# -p 3307:3306 映射3306端口至本地3307&lt;/span&gt;
+  docker run -ti -p 3307:3306  --name tm-mysql -e &lt;span class=&quot;nv&quot;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;hehang -d 9e64176cd8a2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;构建&lt;code&gt;tm-web&lt;/code&gt;服务器容器&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# -p 8080:8080 映射8080端口至本地8080&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# -v /local/TM/WebRoot/:/usr/local/tomcat/webapps/TM/ 目录映射&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# --link tm-mysql:tm-mysql   用来将两个容器进行关联,使tm-web可以通过tm-db别名去访问tm-mysql容器&lt;/span&gt;
+
+docker run -it -d -p 8080:8080 --name tm-web --link tm-mysql:tm-db -v /Users/hehang/GitHub/TM/WebRoot/:/usr/local/tomcat/webapps/TM/ 3695a0fe8320
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;最后在本地通过&lt;code&gt;3307&lt;/code&gt;端口链接至mysql容器，初始化tm库表数据。&lt;/p&gt;
+
+&lt;p&gt;运行完美。&lt;/p&gt;
+</description>
+        <pubDate>Sat, 28 May 2016 00:00:00 +0800</pubDate>
+        <link>http://hehangblog.com/2016/05/28/tm-docker-build/</link>
+        <guid isPermaLink="true">http://hehangblog.com/2016/05/28/tm-docker-build/</guid>
+        
+        <category>Docker</category>
+        
+        
+      </item>
     
       <item>
         <title>Webpack2 学习指南</title>
@@ -66,8 +122,8 @@
 &lt;p&gt;结合大量生态插件，代码调优等，进行前端项目环境搭建。&lt;/p&gt;
 </description>
         <pubDate>Wed, 04 May 2016 00:00:00 +0800</pubDate>
-        <link>http://hehangblog.com/calm/2016/05/04/webpack/</link>
-        <guid isPermaLink="true">http://hehangblog.com/calm/2016/05/04/webpack/</guid>
+        <link>http://hehangblog.com/2016/05/04/webpack/</link>
+        <guid isPermaLink="true">http://hehangblog.com/2016/05/04/webpack/</guid>
         
         <category>WebPack</category>
         
@@ -355,8 +411,8 @@ docker run -d -p 8090:8080 zingdocker/jdk-tomcat
 &lt;/ul&gt;
 </description>
         <pubDate>Mon, 02 May 2016 00:00:00 +0800</pubDate>
-        <link>http://hehangblog.com/calm/2016/05/02/dockerfile-rules/</link>
-        <guid isPermaLink="true">http://hehangblog.com/calm/2016/05/02/dockerfile-rules/</guid>
+        <link>http://hehangblog.com/2016/05/02/dockerfile-rules/</link>
+        <guid isPermaLink="true">http://hehangblog.com/2016/05/02/dockerfile-rules/</guid>
         
         <category>Docker</category>
         
@@ -379,8 +435,8 @@ docker run -d -p 8090:8080 zingdocker/jdk-tomcat
 &lt;h3 id=&quot;thanks&quot;&gt;Thanks&lt;/h3&gt;
 </description>
         <pubDate>Mon, 02 May 2016 00:00:00 +0800</pubDate>
-        <link>http://hehangblog.com/calm/2016/05/02/blog-start/</link>
-        <guid isPermaLink="true">http://hehangblog.com/calm/2016/05/02/blog-start/</guid>
+        <link>http://hehangblog.com/2016/05/02/blog-start/</link>
+        <guid isPermaLink="true">http://hehangblog.com/2016/05/02/blog-start/</guid>
         
         <category>闲谈</category>
         
