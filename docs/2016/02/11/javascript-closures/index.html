@@ -12,9 +12,9 @@
     <meta name="keyword"  content="何航, 博客, Web, 前端, 全栈, JavaScript | 个人网站, 互联网, 前端, 设计, 产品">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>新的篇章 | Blog - 何航的博客 | HeHang</title>
+    <title>javascript 闭包 - 何航的博客 | HeHang</title>
 
-    <link rel="canonical" href="http://hehangblog.com/2016/05/02/blog-start/">
+    <link rel="canonical" href="http://hehangblog.com/2016/02/11/javascript-closures/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -127,12 +127,12 @@
 
     <!-- Image to hack wechat -->
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
-<!-- <img src="/img/home-bg.jpg" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-js-version.jpg" width="0" height="0"> -->
 
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('/img/home-bg.jpg')
+        background-image: url('/img/post-bg-js-version.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -142,15 +142,15 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#闲谈" title="闲谈">闲谈</a>
+                        <a class="tag" href="/tags/#javaScript" title="javaScript">javaScript</a>
                         
                     </div>
-                    <h1>新的篇章 | Blog</h1>
+                    <h1>javascript 闭包</h1>
                     
                     
-                    <h2 class="subheading">New start</h2>
+                    <h2 class="subheading">Closures</h2>
                     
-                    <span class="meta">Posted by HeHang on May 2, 2016</span>
+                    <span class="meta">Posted by HeHang on February 11, 2016</span>
                 </div>
             </div>
         </div>
@@ -168,18 +168,147 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-				<blockquote>
-  <p>下滑这里查看更多内容</p>
+				<h3 id="javascript---closures">javascript 闭包 | Closures</h3>
+
+<blockquote>
+  <p>javascript闭包在代码中很常见，熟练的掌握和运用闭包，能够帮助我们更好的构建高级应用。因此，我们需要更深层次的去了解它。</p>
 </blockquote>
 
-<p>经历反复的折腾，终于算是安家于此了。很早就想静下心来，写写博客了，但是懒癌一直作用于身，舍不得走。
-先后经历了网易博客，博客园，csdn等，发现终究都有些不合人意的地方，最终还是决定自己搭建一个。以便后期扩展使用。</p>
+<h4 id="section">作用域</h4>
 
-<p><img src="http://blog-image.bj.bcebos.com/common/maimeng.jpg" width="350" height="350" /></p>
+<p>在JS中，变量的作用域分为2类：全局变量 和 局部变量。举个栗子</p>
 
-<p>望已能持之以恒。</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">global</span> <span class="o">=</span> <span class="s1">'Global'</span><span class="p">;</span>
 
-<h3 id="thanks">Thanks</h3>
+<span class="kd">function</span> <span class="nx">func</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">local</span> <span class="o">=</span> <span class="s1">'Local'</span><span class="p">;</span>
+
+  <span class="c1">// 在函数中，可以直接获取 全局变量。</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">global</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">func</span><span class="p">();</span> <span class="c1">//正常运行，打印出 Global。</span>
+
+<span class="c1">//error, 无法获取函数内的局部变量。</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">local</span><span class="p">);</span>
+
+</code></pre>
+</div>
+
+<h4 id="section-1">函数外读取局部变量</h4>
+
+<p>正常情况下，函数外无法直接读取函数内的局部变量。
+因此，需要用特别的方式来获取。举个栗子</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<span class="c1">//定义函数作用域</span>
+<span class="kd">function</span> <span class="nx">func</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">local</span> <span class="o">=</span> <span class="s1">'Local'</span><span class="p">;</span>
+
+  <span class="c1">// 定义一个子函数</span>
+  <span class="kd">function</span> <span class="nx">childFunc</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//函数内打印local</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">local</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">childFunc</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//执行func函数，returnFunc变量接收到childFunc函数</span>
+<span class="kd">var</span> <span class="nx">returnFunc</span> <span class="o">=</span> <span class="nx">func</span><span class="p">();</span>
+
+<span class="c1">// 执行函数</span>
+<span class="nx">returnFunc</span><span class="p">();</span>
+
+<span class="c1">//打印结果为：Local</span>
+</code></pre>
+</div>
+
+<p>通过栗子可以得知，子函数childFunc虽然被return了，但仍可以访问到父函数func的内部变量<code>local</code>。(在JS中，这是合理的，函数的作用域在编写代码期间，就已经确定了，而非像某些其他语言，是在编译期)</p>
+
+<h4 id="section-2">闭包的概念</h4>
+
+<p>上面的栗子就是一个典型的闭包，闭包可以实现访问某个函数的内部环境。</p>
+
+<p>闭包由2部分构成：函数，以及函数所依赖的外部环境（作用域）。</p>
+
+<blockquote>
+  <p>一般来讲，当函数执行完毕后，局部活动对象就会销毁，内存仅保存全局作用域。但是，闭包的情况不同，closure函数执行完毕后，其活动对象不会销毁，因为闭包函数的作用域链仍然引用这个活动对象。直到闭包函数被销毁后，closure函数的活动对象才会被销毁。</p>
+</blockquote>
+
+<blockquote>
+  <p>由于闭包会携带包含它的函数的作用域，因此会占用更多的内存。</p>
+</blockquote>
+
+<h4 id="section-3">闭包的用途</h4>
+
+<p>主要有2点：</p>
+<ul>
+  <li>可以访问函数内部的环境。</li>
+  <li>只要闭包引用不消失，闭包和其依赖的外部环境(作用域)会常驻内存。(一般函数在执行完毕后，即销毁了)</li>
+</ul>
+
+<h5 id="section-4">私有变量和函数</h5>
+
+<p>仅通过给定方法进行操作，不希望部分函数内环境暴露出去(数据隐藏)。</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Money</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 我们不希望外部能直接修改金额。</span>
+  <span class="kd">var</span> <span class="nx">money</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="c1">// 内部函数，仅函数内使用，不希望外部访问。</span>
+  <span class="kd">function</span> <span class="nx">info</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'the current money is '</span> <span class="o">+</span> <span class="nx">money</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 增加金额，并做记录操作</span>
+  <span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'the money add '</span><span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
+    <span class="nx">money</span> <span class="o">+=</span> <span class="nx">num</span><span class="p">;</span>
+    <span class="nx">info</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 减去金额，并做记录操作</span>
+  <span class="kd">function</span> <span class="nx">sub</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'the money sub '</span><span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
+    <span class="nx">money</span> <span class="o">-=</span> <span class="nx">num</span><span class="p">;</span>
+    <span class="nx">info</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">add</span><span class="p">:</span> <span class="nx">add</span><span class="p">,</span>
+    <span class="na">sub</span><span class="p">:</span> <span class="nx">sub</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">money</span> <span class="o">=</span> <span class="nx">Money</span><span class="p">();</span>
+<span class="c1">// 仅通过add/sub操作金额，而无法直接修改。</span>
+<span class="nx">money</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="nx">money</span><span class="p">.</span><span class="nx">sub</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+
+</code></pre>
+</div>
+
+<h5 id="section-5">模仿块级作用域</h5>
+
+<p>JavaScript没有块级作用域，用匿名函数可以用来模仿块级作用域并避免出现命名参数冲突的问题。</p>
+
+<pre><code class="language-Javascript">(function(){  
+ //块级作用域  
+})();  
+</code></pre>
+
+<blockquote>
+  <p>定义了一个匿名自执行函数，Javascript将function关键字当作函数声明的开始，而函数声明后面不能跟圆括号。然而，函数表达式的后面可以跟圆括号。要将函数声明转换为函数表达式，只要加上一对圆括号即可。</p>
+</blockquote>
+
+<blockquote>
+  <p>这种技术经常在全局作用域中被用在函数外部，从而限制向全局作用域中添加过多的变量和函数，这种做法可以减少闭包占用内存的问题。</p>
+</blockquote>
+
+<ul>
+  <li><a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html">参考文章一</a></li>
+  <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures">参考文章二</a></li>
+</ul>
 
 
                 <hr>
@@ -189,9 +318,13 @@
 
                 <ul class="pager">
                     
+                    <li class="previous">
+                        <a href="/2015/11/22/blog-start/" data-toggle="tooltip" data-placement="top" title="新的篇章 | Blog">&larr; Previous Post</a>
+                    </li>
+                    
                     
                     <li class="next">
-                        <a href="/2016/05/02/dockerfile-rules/" data-toggle="tooltip" data-placement="top" title="Dockerfile的书写规范">Next Post &rarr;</a>
+                        <a href="/2016/02/11/javascript-this/" data-toggle="tooltip" data-placement="top" title="javascript this关键字">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -234,6 +367,12 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
         				
+                            
+        				
+                            
+                				<a href="/tags/#javaScript" title="javaScript" rel="2">
+                                    javaScript
+                                </a>
                             
         				
                             
@@ -420,7 +559,7 @@
 
 <script>
     // dynamic User by Hux
-    var _baId = '4cc1f2d8f3067386cc5cdb626a202900';
+    var _baId = '10aaf63a46563b2ba9bda04331a2fac9';
 
     // Originial
     var _hmt = _hmt || [];

@@ -12,9 +12,9 @@
     <meta name="keyword"  content="何航, 博客, Web, 前端, 全栈, JavaScript | 个人网站, 互联网, 前端, 设计, 产品">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>何航的博客 | HeHang</title>
+    <title>javascript this关键字 - 何航的博客 | HeHang</title>
 
-    <link rel="canonical" href="http://hehangblog.com/">
+    <link rel="canonical" href="http://hehangblog.com/2016/02/11/javascript-this/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -125,300 +125,218 @@
 </script>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-js-version.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/post-bg-js-version.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Follow your heart</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">HeHang Blog</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#javaScript" title="javaScript">javaScript</a>
+                        
+                    </div>
+                    <h1>javascript this关键字</h1>
+                    
+                    
+                    <h2 class="subheading">The This</h2>
+                    
+                    <span class="meta">Posted by HeHang on February 11, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-        
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
-    		<div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-    			
-<div class="post-preview">
-    <a href="/2016/05/28/tm-docker-build/">
-        <h2 class="post-title">
-            构建简单的java项目运行环境
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Java Docker Build
-        </h3>
-        
-        <div class="post-content-preview">
-            
-  下滑这里查看更多内容
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
+				<h3 id="javascript-this--">javascript this | 关键字</h3>
 
-一个小练习项目，记录一下。
+<p>this是javaScript中的一个关键字，大多数情况下，函数的调用方式不同，this的指向也会动态发生改变。</p>
 
-基础镜像
+<blockquote>
+  <p>需要记住的是：哪个对象调用的this，this就指向谁。</p>
+</blockquote>
 
-从网易蜂巢拉取基础环境镜像
+<h5 id="section">全局环境下</h5>
 
-  Tomcat 服务容器： library / tomcat
-  Mysql 数据库容器：library / mysql
+<p>当我们在全局环境下使用this时，将指向window对象。</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="k">this</span> <span class="o">===</span> <span class="nb">window</span><span class="p">);</span>
+  <span class="c1">// true</span>
 
+  <span class="kd">var</span> <span class="nx">hello</span> <span class="o">=</span> <span class="s1">'Hello World'</span><span class="p">;</span>
 
-docker pull hub.c.163.com/library/tomcat:latest
-
-docker pull hub.c.163.com/librar...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by HeHang on May 28, 2016
-    </p>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">hello</span><span class="p">);</span>
+  <span class="c1">// Hello World;</span>
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/2016/05/04/webpack/">
-        <h2 class="post-title">
-            Webpack2 学习指南
-        </h2>
-        
-        <h3 class="post-subtitle">
-            webpack2 guide
-        </h3>
-        
-        <div class="post-content-preview">
-            
-  下滑这里查看更多内容
+<h4 id="section-1">在函数内</h4>
 
+<blockquote>
+  <p>根据函数的归属对象不同，this指向也会有所不同。</p>
+</blockquote>
 
-记录了个人在学习webpack2中写的一些demos和过程遇到的坑点。
+<h5 id="section-2">全局函数</h5>
 
-如何开始
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+  <span class="c1">// globalFunc归属于window对象。</span>
+  <span class="kd">function</span> <span class="nx">globalFunc</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// this指向调用它的对象</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="k">this</span> <span class="o">===</span> <span class="nb">window</span><span class="p">);</span>
+  <span class="p">}</span>
 
+  <span class="nx">globalFunc</span><span class="p">();</span>
+  <span class="c1">// true</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">globalFunc</span><span class="p">();</span>
+  <span class="c1">// true</span>
 
-  安装必须的2个包,webpack 和 webpack-dev-server到全局环境。
-     npm i -g webpack webpack-dev-server
-
-    
-  
-  接着，进入demo01, 阅读README.md开始学习。
-
-
-webpack...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by HeHang on May 4, 2016
-    </p>
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/2016/05/02/dockerfile-rules/">
-        <h2 class="post-title">
-            Dockerfile的书写规范
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Dockerfile rules
-        </h3>
-        
-        <div class="post-content-preview">
-            
-  下滑这里查看更多内容
+<h5 id="section-3">指定对象</h5>
 
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+  <span class="kd">function</span> <span class="nx">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="k">this</span> <span class="o">===</span> <span class="nb">window</span><span class="p">);</span>
+  <span class="p">}</span>
 
-Dockerfile的书写规范
+  <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+  <span class="c1">// obj自身函数</span>
+  <span class="nx">obj</span><span class="p">.</span><span class="nx">func</span> <span class="o">=</span> <span class="nx">func</span><span class="p">;</span>
 
-Dockerfile的指令是忽略大小写的，建议使用大写，使用 # 作为注释，每一行只支持一条指令，每条指令可以携带多个参数。
+  <span class="nx">func</span><span class="p">();</span>
+  <span class="c1">// true   等同于window.func()</span>
 
-Dockerfile的指令根据作用可以分为两种，构建指令和设置指令。
+  <span class="nx">obj</span><span class="p">.</span><span class="nx">func</span><span class="p">();</span>
+  <span class="c1">// false  obj调用func</span>
 
-  构建指令用于构建image，其指定的操作不会在运行image的容器上执行；
-  设置指令用于设置image的属性，其指定的操...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by HeHang on May 2, 2016
-    </p>
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/2016/02/11/javascript-this/">
-        <h2 class="post-title">
-            javascript this关键字
-        </h2>
-        
-        <h3 class="post-subtitle">
-            The This
-        </h3>
-        
-        <div class="post-content-preview">
-            javascript this | 关键字
+<p>基于上面的栗子再进行扩展，更清晰的了解this此刻的指向</p>
 
-this是javaScript中的一个关键字，大多数情况下，函数的调用方式不同，this的指向也会动态发生改变。
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nx">hello</span> <span class="o">=</span> <span class="s1">'Global Hello'</span><span class="p">;</span>
 
+  <span class="kd">function</span> <span class="nx">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// console.info(this === window);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">hello</span><span class="p">);</span>
+  <span class="p">}</span>
 
-  需要记住的是：哪个对象调用的this，this就指向谁。
+  <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+  <span class="nx">obj</span><span class="p">.</span><span class="nx">hello</span> <span class="o">=</span> <span class="s1">'Obj Hello'</span><span class="p">;</span>
+  <span class="nx">obj</span><span class="p">.</span><span class="nx">func</span> <span class="o">=</span> <span class="nx">func</span><span class="p">;</span>
 
+  <span class="nx">func</span><span class="p">();</span>
+  <span class="c1">// Global Hello</span>
 
-全局环境下
+  <span class="nx">obj</span><span class="p">.</span><span class="nx">func</span><span class="p">();</span>
+  <span class="c1">// Obj Hello</span>
 
-当我们在全局环境下使用this时，将指向window对象。
-  console.info(this === window);
-  // true
-
- ...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by HeHang on February 11, 2016
-    </p>
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/2016/02/11/javascript-closures/">
-        <h2 class="post-title">
-            javascript 闭包
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Closures
-        </h3>
-        
-        <div class="post-content-preview">
-            javascript 闭包 | Closures
+<h4 id="section-4">印象加深</h4>
+<p>如果你能够正确识别以下栗子中this的指向，那么说明你已经对this有一定的了解。</p>
+<blockquote>
+  <p>请先尝试猜测以下this的指向，我会在最后对栗子进行说明。</p>
+</blockquote>
 
 
-  javascript闭包在代码中很常见，熟练的掌握和运用闭包，能够帮助我们更好的构建高级应用。因此，我们需要更深层次的去了解它。
+                <hr>
+
+                
 
 
-作用域
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/02/11/javascript-closures/" data-toggle="tooltip" data-placement="top" title="javascript 闭包">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2016/05/02/dockerfile-rules/" data-toggle="tooltip" data-placement="top" title="Dockerfile的书写规范">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
 
-在JS中，变量的作用域分为2类：全局变量 和 局部变量。举个栗子
+                
 
-var global = 'Global';
-
-function func() {
-  var local = 'Local...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by HeHang on February 11, 2016
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2015/11/22/blog-start/">
-        <h2 class="post-title">
-            新的篇章 | Blog
-        </h2>
-        
-        <h3 class="post-subtitle">
-            New start
-        </h3>
-        
-        <div class="post-content-preview">
-            
-  下滑这里查看更多内容
+                <!-- 畅言公共JS代码 start-->
+                
+                  <div id="SOHUCS" ></div>
+                  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+                  <script type="text/javascript">
+                    window.changyan.api.config({
+                    appid: 'cystl32KH',
+                    conf: 'prod_c1be456f632bd05b51c4f1f39a042827'
+                    });
+                  </script>
+                
+                <!-- 畅言公共JS代码 end -->
 
 
-经历反复的折腾，终于算是安家于此了。很早就想静下心来，写写博客了，但是懒癌一直作用于身，舍不得走。
-先后经历了网易博客，博客园，csdn等，发现终究都有些不合人意的地方，最终还是决定自己搭建一个。以便后期扩展使用。
+                <!-- 友言公共JS代码 start -->
+                
+                <!-- 友言公共JS代码 end -->
 
 
+                
 
-望已能持之以恒。
+            </div>
 
-Thanks
-
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by HeHang on November 22, 2015
-    </p>
-</div>
-<hr>
-
-
-<!-- Pager -->
-
-
-    		</div>
     <!-- Sidebar Container -->
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        
+        				
                             
-                        
+        				
                             
-                                <a href="/tags/#javaScript" title="javaScript" rel="2">
+                				<a href="/tags/#javaScript" title="javaScript" rel="2">
                                     javaScript
                                 </a>
                             
-                        
+        				
                             
-                                <a href="/tags/#Docker" title="Docker" rel="2">
+                				<a href="/tags/#Docker" title="Docker" rel="2">
                                     Docker
                                 </a>
                             
-                        
+        				
                             
-                        
-                    </div>
+        				
+        			</div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-                        
-                            <img src="/img/my-head.jpg" />
-                        
-                        
-                            <p>早日实现财务自由</p>
-                        
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
                 <!-- Friends Blog -->
                 
                 <hr>
@@ -437,10 +355,52 @@ Thanks
                     
                 </ul>
                 
-    		</div>
-        
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->

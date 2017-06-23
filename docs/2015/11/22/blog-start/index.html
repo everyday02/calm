@@ -12,9 +12,9 @@
     <meta name="keyword"  content="何航, 博客, Web, 前端, 全栈, JavaScript | 个人网站, 互联网, 前端, 设计, 产品">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>何航的博客 | HeHang</title>
+    <title>新的篇章 | Blog - 何航的博客 | HeHang</title>
 
-    <link rel="canonical" href="http://hehangblog.com/404.html">
+    <link rel="canonical" href="http://hehangblog.com/2015/11/22/blog-start/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -125,23 +125,199 @@
 </script>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/404-bg.jpg')">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				<div class="site-heading" id="tag-heading">
-					<h1>404</h1>
-					<span class="subheading">你来到了没有知识的荒原 :(</span>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/home-bg.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#闲谈" title="闲谈">闲谈</a>
+                        
+                    </div>
+                    <h1>新的篇章 | Blog</h1>
+                    
+                    
+                    <h2 class="subheading">New start</h2>
+                    
+                    <span class="meta">Posted by HeHang on November 22, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<blockquote>
+  <p>下滑这里查看更多内容</p>
+</blockquote>
+
+<p>经历反复的折腾，终于算是安家于此了。很早就想静下心来，写写博客了，但是懒癌一直作用于身，舍不得走。
+先后经历了网易博客，博客园，csdn等，发现终究都有些不合人意的地方，最终还是决定自己搭建一个。以便后期扩展使用。</p>
+
+<p><img src="http://blog-image.bj.bcebos.com/common/maimeng.jpg" width="350" height="350" /></p>
+
+<p>望已能持之以恒。</p>
+
+<h3 id="thanks">Thanks</h3>
+
+
+                <hr>
+
+                
+
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2016/02/11/javascript-closures/" data-toggle="tooltip" data-placement="top" title="javascript 闭包">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                <!-- 畅言公共JS代码 start-->
+                
+                  <div id="SOHUCS" ></div>
+                  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+                  <script type="text/javascript">
+                    window.changyan.api.config({
+                    appid: 'cystl32KH',
+                    conf: 'prod_c1be456f632bd05b51c4f1f39a042827'
+                    });
+                  </script>
+                
+                <!-- 畅言公共JS代码 end -->
+
+
+                <!-- 友言公共JS代码 start -->
+                
+                <!-- 友言公共JS代码 end -->
+
+
+                
+
+            </div>
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+        				
+                            
+                				<a href="/tags/#javaScript" title="javaScript" rel="2">
+                                    javaScript
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#Docker" title="Docker" rel="2">
+                                    Docker
+                                </a>
+                            
+        				
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a href="http://huangxuan.me">Hux Blog</a></li>
+                    
+                        <li><a href="#">Foo</a></li>
+                    
+                        <li><a href="#">Bar</a></li>
+                    
+                        <li><a href="#">Example Friends</a></li>
+                    
+                        <li><a href="#">It helps SEO</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
 <script>
-	document.body.classList.add('page-fullscreen');
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
 </script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
